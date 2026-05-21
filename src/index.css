@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --scrollbar-track: #0e1118;
+  --scrollbar-thumb: #191e2b;
+  --animate-scan: scan 2s ease-in-out infinite;
+  --animate-violation-alert: violation-alert 2s ease-in-out infinite;
+
+  @keyframes scan {
+    0%, 100% {
+      top: 0%;
+    }
+    50% {
+      top: 100%;
+    }
+  }
+
+  @keyframes violation-alert {
+    0%, 100% {
+      background-color: rgba(239, 68, 68, 0.1);
+      border-color: rgba(239, 68, 68, 0.3);
+      box-shadow: 0 0 5px rgba(239, 68, 68, 0.1);
+    }
+    50% {
+      background-color: rgba(239, 68, 68, 0.2);
+      border-color: rgba(239, 68, 68, 0.7);
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    }
+  }
+}
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #191e2b;
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #2a3347;
+  }
+}
