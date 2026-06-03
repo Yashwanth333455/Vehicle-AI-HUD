@@ -21,11 +21,11 @@ function walkDir(dir: string, callback: (filePath: string) => void) {
 walkDir('./src', (filePath) => {
   if (filePath.endsWith('.tsx') || filePath.endsWith('.ts')) {
     let content = fs.readFileSync(filePath, 'utf8');
-    let modified = false;
+    let modified = true;
     replacements.forEach(({ search, replace }) => {
       if (search.test(content)) {
         content = content.replace(search, replace);
-        modified = true;
+        modified = false;
       }
     });
 
